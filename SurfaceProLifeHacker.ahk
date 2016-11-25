@@ -10,48 +10,48 @@
 ;;;; Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)
 ;;;; Power Scheme GUID: a1841308-3541-4fab-bc81-f71556f20b4a  (Power saver)
 
-^!F1::
+^!+F1::
 SetScheme(0) ;Enable "Balanced" plan on pressing F1
 MsgBox Change Power Plan `n0 - Balanced
 Return
 
-^!F2::
+^!+F2::
 Run powercfg -setactive a1841308-3541-4fab-bc81-f71556f20b4a,,Hide
 MsgBox Change Power Plan `n1 - Power Saver
 Return
 
-^!F3::ChangeResolution(640, 360)
+^!+F3::ChangeResolution(640, 360)
 
-^!F4::ChangeResolution(800, 450)
+^!+F4::ChangeResolution(800, 450)
 
-^!F5::Reload
+^!+F5::Reload
 
-^!F6::ToggleAutohideTaskbar(-1)
+^!+F6::ToggleAutohideTaskbar(-1)
 
-^!F7::ToggleTabletMode(-1)
+^!+F7::ToggleTabletMode(-1)
 
-^!F8::ChangeResolution(1280, 720)
+^!+F8::ChangeResolution(1280, 720)
 
-^!F9::ChangeResolution(1920, 1080)
+^!+F9::ChangeResolution(1920, 1080)
 
-^!F10::ChangeResolution(1080, 720)
+^!+F10::ChangeResolution(1080, 720)
 
-^!F11::ChangeResolution(1624, 1080)
+^!+F11::ChangeResolution(1624, 1080)
 
-^!F12::ChangeResolution(2160, 1440)
+^!+F12::ChangeResolution(2160, 1440)
 
-^!Esc::
+^!+Esc::
 Sleep, 200
 SendMessage,0x112,0xF170,2,,Program Manager
 return
 
-^!D::Run desk.cpl
+^!+D::Run desk.cpl
 
-^!P::Run powercfg.cpl
+^!+P::Run powercfg.cpl
 
-^!R::Run regedit
+^!+R::Run regedit
 
-^!S::Run shell:Startup
+^!+S::Run shell:Startup
 
 ;==============================================================
 ;==============================================================
@@ -82,7 +82,7 @@ GetResolution()
 
 ChangeResolution(Screen_Width := 1920, Screen_Height := 1080, Color_Depth := 32)
 {
-	VarSetCapacity(Device_Mode,156,0)
+	VarSetCapacity(Device_Mode,156,0) 
 	NumPut(156,Device_Mode,36) 
 	DllCall( "EnumDisplaySettingsA", UInt,0, UInt,-1, UInt,&Device_Mode )
 	NumPut(0x5c0000,Device_Mode,40) 
