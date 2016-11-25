@@ -6,8 +6,6 @@
 ;==============================================================
 ;==============================================================
 
-^!F5::Reload
-
 ;;;; Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)
 ;;;; Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)
 ;;;; Power Scheme GUID: a1841308-3541-4fab-bc81-f71556f20b4a  (Power saver)
@@ -22,56 +20,38 @@ Run powercfg -setactive a1841308-3541-4fab-bc81-f71556f20b4a,,Hide
 MsgBox Change Power Plan `n1 - Power Saver
 Return
 
-^!F3::
-ChangeResolution(640, 360)
-Return
+^!F3::ChangeResolution(640, 360)
 
-^!F6::
-ToggleAutohideTaskbar(-1)
-Return
+^!F4::ChangeResolution(800, 450)
 
-^!F7::
-ToggleTabletMode(-1)
-Return
+^!F5::Reload
 
-^!F8::
-ChangeResolution(1280, 720)
-Return
+^!F6::ToggleAutohideTaskbar(-1)
 
-^!F9::
-ChangeResolution(1920, 1080)
-Return
+^!F7::ToggleTabletMode(-1)
 
-^!F10::
-ChangeResolution(1080, 720)
-Return
+^!F8::ChangeResolution(1280, 720)
 
-^!F11::
-ChangeResolution(1624, 1080)
-Return
+^!F9::ChangeResolution(1920, 1080)
 
-^!F12::
-ChangeResolution(2160, 1440)
-Return
+^!F10::ChangeResolution(1080, 720)
+
+^!F11::ChangeResolution(1624, 1080)
+
+^!F12::ChangeResolution(2160, 1440)
 
 ^!Esc::
 Sleep, 200
 SendMessage,0x112,0xF170,2,,Program Manager
 return
 
-^!D::
-Run desk.cpl
-return
+^!D::Run desk.cpl
 
-^!P::
-Run powercfg.cpl
-return
+^!P::Run powercfg.cpl
 
-^!R::
-Run regedit
-return
+^!R::Run regedit
 
-
+^!S::Run shell:Startup
 
 ;==============================================================
 ;==============================================================
