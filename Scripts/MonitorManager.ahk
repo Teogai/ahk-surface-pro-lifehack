@@ -1,12 +1,52 @@
 Class MonitorManager
 {
-	GetResolution()
+	static WIDTH
+	static HEIGHT
+	
+	SaveCurrentResolution()
 	{
-		SysGet, MonitorName, MonitorName, %A_Index%
+		MonitorManager.GetResolution(width, height)
+		this.WIDTH := width
+		this.HEIGHT := height
+	}
+	
+	RevertToSavedResolution()
+	{
+		MonitorManager.ChangeResolution(this.WIDTH, this.HEIGHT)
+	}
+	
+	ChangeToLowestResolution()
+	{
+		MonitorManager.GetResolution(width, height)
+		if(width / height = 3 / 2)
+		{
+			MonitorManager.ChangeResolution(540, 360)
+		}
+		else
+		{
+			MonitorManager.ChangeResolution(640, 360)
+		}
+	}
+	
+	GetResolution(Byref width, Byref height)
+	{
 		SysGet, Monitor, Monitor, %A_Index%
-		SysGet, MonitorWorkArea, MonitorWorkArea, %A_Index%
+		width := MonitorRight
+		height := MonitorBottom
 	}
 
+	GetWorkArea()
+	{
+		SysGet, MonitorWorkArea, MonitorWorkArea, %A_Index%
+		return MonitorWorkArea
+	}
+	
+	GetName()
+	{
+		SysGet, MonitorName, MonitorName, %A_Index%
+		return MonitorName
+	}
+	
 	ChangeResolution(Screen_Width := 1920, Screen_Height := 1080, Color_Depth := 32)
 	{
 		VarSetCapacity(Device_Mode,156,0) 
@@ -41,12 +81,12 @@ Class MonitorManager
 		ImmersiveShell := ComObjCreate("{C2F03A33-21F5-47FA-B4BB-156362A2F239}", "{00000000-0000-0000-C000-000000000046}")
 		TabletModeController := ComObjQuery(ImmersiveShell, "{4fda780a-acd2-41f7-b4f2-ebe674c9bf2a}", "{4fda780a-acd2-41f7-b4f2-ebe674c9bf2a}")
 			
-		if (TabletModeController_GetMode(TabletModeController, mode) == 0)
+		if (this.TabletModeController_GetMode(TabletModeController, mode) == 0)
 		{
 			if(TabletMode == -1)
-				TabletModeController_SetMode(TabletModeController, mode == TABLETMODESTATE_DESKTOPMODE ? TABLETMODESTATE_TABLETMODE : TABLETMODESTATE_DESKTOPMODE)
+				this.TabletModeController_SetMode(TabletModeController, mode == TABLETMODESTATE_DESKTOPMODE ? TABLETMODESTATE_TABLETMODE : TABLETMODESTATE_DESKTOPMODE)
 			else if(TabletMode == 0 || TabletMode == 1)
-				TabletModeController_SetMode(TabletModeController, TabletMode)
+				this.TabletModeController_SetMode(TabletModeController, TabletMode)
 		}
 
 		ObjRelease(TabletModeController), TabletModeController := 0
@@ -67,11 +107,13 @@ Class MonitorManager
 }
 
 ; ==3:2==
-; 800	450
+; 540	360
 ; 1080	720
 ; 1624	1080
+; 2160	1440
 
 ; ==16:9==
 ; 640	360
+; 800	450
 ; 1280	720
 ; 1920	1080

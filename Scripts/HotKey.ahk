@@ -38,3 +38,7 @@
 ^!+S::Run shell:Startup
 
 #Backspace::CtrlBreak ;Make Win+Backspace = Pause/Break
+
+#IfWinActive ahk_class ConsoleWindowClass
+^V::Send !{Space}ep
+#IfWinActive
