@@ -10,7 +10,7 @@
 	
 	Run()
 	{
-		Loop()
+		Loop
 		{
 			SurfaceProLifeHacker.HandleOverwatch()
 		}
