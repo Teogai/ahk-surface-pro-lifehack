@@ -1,77 +1,14 @@
-﻿
+﻿#include Scripts/HotKey.ahk
 
-;==============================================================
-;==============================================================
-;=====================   Remap Keys   =========================
-;==============================================================
-;==============================================================
+Hotkey.Init()
 
-;;;; Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)
-;;;; Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)
-;;;; Power Scheme GUID: a1841308-3541-4fab-bc81-f71556f20b4a  (Power saver)
-
-^!+F1::
-SetScheme(0) ;Enable "Balanced" plan on pressing F1
-MsgBox Change Power Plan `n0 - Balanced
-Return
-
-^!+F2::
-Run powercfg -setactive a1841308-3541-4fab-bc81-f71556f20b4a,,Hide
-MsgBox Change Power Plan `n1 - Power Saver
-Return
-
-^!+F3::ChangeResolution(640, 360)
-
-^!+F4::ChangeResolution(800, 450)
-
-^!+F5::Reload
-
-^!+F6::ToggleAutohideTaskbar(-1)
-
-^!+F7::ToggleTabletMode(-1)
-
-^!+F8::ChangeResolution(1280, 720)
-
-^!+F9::ChangeResolution(1920, 1080)
-
-^!+F10::ChangeResolution(1080, 720)
-
-^!+F11::ChangeResolution(1624, 1080)
-
-^!+F12::ChangeResolution(2160, 1440)
-
-^!+Esc::
-Sleep, 200
-SendMessage,0x112,0xF170,2,,Program Manager
 return
-
-^!+D::Run desk.cpl
-
-^!+P::Run powercfg.cpl
-
-^!+R::Run regedit
-
-^!+S::Run shell:Startup
 
 ;==============================================================
 ;==============================================================
 ;===================   Private Functions   ====================
 ;==============================================================
 ;==============================================================
-
-;SchemeIndex is the number you got from running the first script
-SetScheme(SchemeIndex)
-{
-	VarSetCapacity(guid,szguid := 16)
-	VarSetCapacity(desc, szdesc := 1024)
-	
-	Dllcall("powrprof.dll\PowerEnumerate", "ptr", 0, "ptr", 0, "ptr", 0, "uint", 16, "uint", SchemeIndex, "ptr", &guid, "uint*", 16)
-	r := Dllcall("powrprof.dll\PowerSetActiveScheme", "ptr", 0, "ptr", &guid)
-	if r
-		Msgbox % "PowerSetActiveScheme error: " r
-	r2 := Dllcall("powrprof.dll\PowerReadFriendlyName", "ptr", 0, "ptr", &guid, "ptr", 0, "ptr", 0, "str", desc, "uint*", 1024)
-	;;;;;MsgBox Change Power Plan `n%SchemeIndex% - %desc% `n
-}
 
 GetResolution()
 {
