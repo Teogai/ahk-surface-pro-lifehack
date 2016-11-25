@@ -1,23 +1,40 @@
 #Include Scripts/PowerPlanManager.ahk
+#Include Scripts/MonitorManager.ahk
 
-Class HotKey
-{
-	Init()
-	{
-		PowerPlanManager.Init()
-		Hotkey, ^!+F1, CommandF1
-	}
+^!+F1::PowerPlanManager.SetBalancedPlan()
 
-	CommandF1
-	{
-		PowerPlanManager.SetPowerPlan(PowerPlanManager.BALANCED)
-		MsgBox Change Power Plan `n0 - Balanced
-	}
-		
-	
-}
+^!+F2::PowerPlanManager.SetHighPerformancePlan()
 
+^!+F3::PowerPlanManager.SetPowerSaverPlan()
 
-;;;; Power Scheme GUID 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)
-;;;; Power Scheme GUID 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)
-;;;; Power Scheme GUID a1841308-3541-4fab-bc81-f71556f20b4a  (Power saver)
+^!+F4::return
+
+^!+F5::Reload
+
+; ===== 16:9 =====
+
+^!+F6::MonitorManager.ChangeResolution(640, 360)	
+
+^!+F7::MonitorManager.ChangeResolution(1280, 720)
+
+^!+F8::MonitorManager.ChangeResolution(1920, 1080)
+
+; ===== 3:2 =====
+
+^!+F9::MonitorManager.ChangeResolution(540, 360)	
+
+^!+F10::MonitorManager.ChangeResolution(1080, 720)
+
+^!+F11::MonitorManager.ChangeResolution(1624, 1080)
+
+^!+F12::MonitorManager.ChangeResolution(2160, 1440)
+
+^!+D::Run desk.cpl
+
+^!+P::Run powercfg.cpl
+
+^!+R::Run regedit
+
+^!+S::Run shell:Startup
+
+#Backspace::CtrlBreak ;Make Win+Backspace = Pause/Break
