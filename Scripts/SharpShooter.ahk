@@ -22,7 +22,6 @@ Class SharpShooter
 	
 	Run()
 	{
-	
 		SetKeyDelay,-1, 1
 		SetControlDelay, -1
 		SetMouseDelay, -1
@@ -54,10 +53,16 @@ Class SharpShooter
 		
 		AimSpeed := 3
 		
-		Msgbox SS Start
+		if( !WinActive("Overwatch") )
+		{
+			UI.ShowText("Sharp Shooter - ERROR `nOverwatch not running", 1000)
+			return
+		}
+		
+		UI.ShowText("Sharp Shooter - ON", 1000)
 		
 		this.IsRunning := true
-		Loop
+		while( WinActive("Overwatch") )
 		{
 			if(this.IsRunning = true)
 			{
@@ -89,11 +94,23 @@ Class SharpShooter
 				Sleep, 1000
 			}
 		}
-		Msgbox SS End
+		this.IsRunning := false
+		UI.ShowText("Sharp Shooter - OFF", 1000)
 	}
 	
 	Toggle()
 	{
+		if( !WinActive("Overwatch") )
+		{
+			UI.ShowText("Sharp Shooter - ERROR `nOverwatch not running", 1000)
+			return
+		}
+		
 		this.IsRunning := !this.IsRunning
+		if(this.IsRunning = true)
+			UI.ShowText("Sharp Shooter - Resume", 1000)
+		else
+			UI.ShowText("Sharp Shooter - Paused", 1000)
+		return
 	}
 }

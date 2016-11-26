@@ -9,19 +9,19 @@ Class PowerPlanManager
 		if r
 			Msgbox % "PowerSetActiveScheme error: " r
 		r2 := Dllcall("powrprof.dll\PowerReadFriendlyName", "ptr", 0, "ptr", &guid, "ptr", 0, "ptr", 0, "str", desc, "uint*", 1024)
-		Msgbox Change Power Plan `n0 -Balanced
+		UI.ShowText("Power Plan - Balanced", 2000)
 	}
 	
 	SetHighPerformancePlan()
 	{
 		Run powercfg -setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c, , Hide
-		Msgbox Change Power Plan `n1 -High Performance
+		UI.ShowText("Power Plan - High Performance", 2000)
 	}
 			
 	SetPowerSaverPlan()
 	{
 		Run powercfg -setactive a1841308-3541-4fab-bc81-f71556f20b4a, , Hide
-		Msgbox Change Power Plan `n2 -Power Saver
+		UI.ShowText("Power Plan - Power Saver", 2000)
 	}
 	
 }

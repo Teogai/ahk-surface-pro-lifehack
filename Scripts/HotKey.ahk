@@ -45,7 +45,7 @@
 
 ^!+]::SharpShooter.Toggle()
 
-^!+-::Run %A_ScriptDir%/Scripts/NoRecoil.ahk
+^!+=::NoRecoil.Toggle()
 
 #Backspace::CtrlBreak ;Make Win+Backspace = Pause/Break
 

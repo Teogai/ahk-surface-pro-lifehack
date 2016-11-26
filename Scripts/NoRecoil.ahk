@@ -1,20 +1,37 @@
-﻿~$LButton::
-While GetKeyState("LButton", "P") 
+﻿Class NoRecoil
 {
-	Random, time, 350, 450
+	static IsRunning = false
+	static usingUlt = false
+	Toggle()
+	{
+		this.IsRunning := !this.IsRunning
+		if(this.IsRunning = true)
+			UI.ShowText("No Recoil - ON", 1000)
+		else
+			UI.ShowText("No Recoil - OFF", 1000)
+		return
+	}
+}
+		
+#If (NoRecoil.IsRunning = true) and WinActive("Overwatch")
+LButton::
+While GetKeyState("LButton", "P") and WinActive("Overwatch") and (NoRecoil.usingUlt = false)
+{
+	Random, clickTime, 350, 450
+	Random, upTime, 25, 30
+	
 	Click down
-	Sleep, %time%
+	Sleep, %clickTime%
 	Click up
-	Sleep, 25
+	Sleep, %upTime%
 }
 return
 
+#If (NoRecoil.IsRunning = true) and WinActive("Overwatch")
 Q::
-Send Q
-Click down
+Send q
+NoRecoil.usingUlt := true
 Sleep, 8000
-Click up
+NoRecoil.usingUlt := false
 return 
-
-^!+=::ExitApp
 

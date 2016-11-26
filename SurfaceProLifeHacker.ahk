@@ -51,7 +51,8 @@ SurfaceProLifeHacker.Run()
 #Include Scripts/MonitorManager.ahk
 #Include Scripts/MouseManager.ahk
 #Include Scripts/SharpShooter.ahk
-;#Include Scripts/NoRecoil.ahk
+#Include Scripts/NoRecoil.ahk
+#Include Scripts/UI.ahk
 
 #NoEnv
 #SingleInstance, Force
