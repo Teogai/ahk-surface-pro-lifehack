@@ -22,11 +22,7 @@ Class SharpShooter
 	
 	Run()
 	{
-		if(!ProcessExist, Overwatch.exe){
-			Msgbox Overwatch is not Running
-			return
-		}
-		
+	
 		SetKeyDelay,-1, 1
 		SetControlDelay, -1
 		SetMouseDelay, -1
@@ -59,7 +55,7 @@ Class SharpShooter
 		Msgbox SS Start
 		
 		this.IsRunning := true
-		while(this.IsRunning = true and ProcessExist, Overwatch.exe)
+		while(this.IsRunning = true)
 		{
 			KeyWait, LButton, D
 			PixelSearch, AimPixelX, AimPixelY, NearAimScanL, NearAimScanT, NearAimScanR, NearAimScanB, EMCol, ColVn, Fast RGB
