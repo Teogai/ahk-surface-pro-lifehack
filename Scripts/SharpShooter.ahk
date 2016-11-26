@@ -52,39 +52,48 @@ Class SharpShooter
 		NearAimScanR := ZeroX + AntiShakeX
 		NearAimScanB := ZeroY + AntiShakeY
 		
+		AimSpeed := 3
+		
 		Msgbox SS Start
 		
 		this.IsRunning := true
-		while(this.IsRunning = true)
+		Loop
 		{
-			KeyWait, LButton, D
-			PixelSearch, AimPixelX, AimPixelY, NearAimScanL, NearAimScanT, NearAimScanR, NearAimScanB, EMCol, ColVn, Fast RGB
-			if (!ErrorLevel=0) {
-				loop, 10 {
-					PixelSearch, AimPixelX, AimPixelY, ScanL, ScanT, ScanR, ScanB, EMCol, ColVn, Fast RGB
-					AimX := AimPixelX - ZeroX
-					AimY := AimPixelY - ZeroY
-					DirX := -1
-					DirY := -1
-					If ( AimX > 0 ) {
-						DirX := 1
+			if(this.IsRunning = true)
+			{
+				KeyWait, LButton, D
+				PixelSearch, AimPixelX, AimPixelY, NearAimScanL, NearAimScanT, NearAimScanR, NearAimScanB, EMCol, ColVn, Fast RGB
+				if (!ErrorLevel=0) {
+					loop, 10 {
+						PixelSearch, AimPixelX, AimPixelY, ScanL, ScanT, ScanR, ScanB, EMCol, ColVn, Fast RGB
+						AimX := AimPixelX - ZeroX
+						AimY := AimPixelY - ZeroY
+						DirX := -1
+						DirY := -1
+						If ( AimX > 0 ) {
+							DirX := 1
+						}
+						If ( AimY > 0 ) {
+							DirY := 1
+						}
+						AimOffsetX := AimX * DirX
+						AimOffsetY := AimY * DirY
+						MoveX := Floor(( AimOffsetX ** ( 1 / 2 ))) * DirX
+						MoveY := Floor(( AimOffsetY ** ( 1 / 2 ))) * DirY
+						DllCall("mouse_event", uint, 1, int, MoveX * AimSpeed, int, MoveY, uint, 0, int, 0)
 					}
-					If ( AimY > 0 ) {
-						DirY := 1
-					}
-					AimOffsetX := AimX * DirX
-					AimOffsetY := AimY * DirY
-					MoveX := Floor(( AimOffsetX ** ( 1 / 2 ))) * DirX
-					MoveY := Floor(( AimOffsetY ** ( 1 / 2 ))) * DirY
-					DllCall("mouse_event", uint, 1, int, MoveX * 4, int, MoveY, uint, 0, int, 0)
 				}
+			}
+			else
+			{
+				Sleep, 1000
 			}
 		}
 		Msgbox SS End
 	}
 	
-	Stop()
+	Toggle()
 	{
-		this.IsRunning := false
+		this.IsRunning := !this.IsRunning
 	}
 }

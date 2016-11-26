@@ -31,7 +31,7 @@
 
 ^!+F12::MonitorManager.ChangeResolution(2160, 1440)
 
-^!+C::SharpShooter.Run()
+^!+C::Run C:\Program Files\ConEmu\ConEmu64.exe
 
 ^!+D::Run desk.cpl
 
@@ -41,7 +41,12 @@
 
 ^!+S::Run shell:Startup
 
-^!+X::SharpShooter.Stop()
+^!+[::SharpShooter.Run()
+
+^!+]::SharpShooter.Toggle()
+
+^!+-::Run %A_ScriptDir%/Scripts/NoRecoil.ahk
+
 
 #Backspace::CtrlBreak ;Make Win+Backspace = Pause/Break
 
