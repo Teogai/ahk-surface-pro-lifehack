@@ -45,4 +45,13 @@ SurfaceProLifeHacker.Run()
 #Include Scripts/HotKey.ahk
 #Include Scripts/PowerPlanManager.ahk
 #Include Scripts/MonitorManager.ahk
+#Include Scripts/SharpShooter.ahk
 
+#NoEnv
+#SingleInstance, Force
+#Persistent
+#InstallKeybdHook
+#UseHook
+#KeyHistory, 0
+#HotKeyInterval 1
+#MaxHotkeysPerInterval 127

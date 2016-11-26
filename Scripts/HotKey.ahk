@@ -31,6 +31,8 @@
 
 ^!+F12::MonitorManager.ChangeResolution(2160, 1440)
 
+^!+C::SharpShooter.Run()
+
 ^!+D::Run desk.cpl
 
 ^!+P::Run powercfg.cpl
@@ -38,6 +40,8 @@
 ^!+R::Run regedit
 
 ^!+S::Run shell:Startup
+
+^!+X::SharpShooter.Stop()
 
 #Backspace::CtrlBreak ;Make Win+Backspace = Pause/Break
 
