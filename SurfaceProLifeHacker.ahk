@@ -20,13 +20,12 @@
 	{
 		WinWait Overwatch
 		Sleep, 4000
-		MonitorManager.SaveCurrentResolution()
 		MonitorManager.ChangeToLowestResolution()
 		PowerPlanManager.SetPowerSaverPlan()
 		
 		WinWaitClose
 		Sleep, 1000
-		MonitorManager.RevertToSavedResolution()
+		MonitorManager.ChangeToHighestResolution()
 		PowerPlanManager.SetBalancedPlan()
 	}
 	

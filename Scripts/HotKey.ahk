@@ -21,9 +21,11 @@
 
 ; ===== 3:2 =====
 
+;^!+F10::MonitorManager.ChangeResolution(1080, 720)
+
 ^!+F9::MonitorManager.ChangeResolution(540, 360)	
 
-^!+F10::MonitorManager.ChangeResolution(1080, 720)
+^!+F10::MonitorManager.ChangeResolution(1440, 960)
 
 ^!+F11::MonitorManager.ChangeResolution(1624, 1080)
 

@@ -20,7 +20,7 @@ Class MonitorManager
 		MonitorManager.GetResolution(width, height)
 		if(width / height = 3 / 2)
 		{
-			MonitorManager.ChangeResolution(540, 360)
+			MonitorManager.ChangeResolution(544, 360)
 		}
 		else
 		{
@@ -28,22 +28,36 @@ Class MonitorManager
 		}
 	}
 	
+	ChangeToHighestResolution()
+	{
+		MonitorManager.GetResolution(width, height)
+		if(width / height = 3 / 2 or width / height = 544 / 360)
+		{
+			MonitorManager.ChangeResolution(2160, 1440)
+		}
+		else
+		{
+			MonitorManager.ChangeResolution(1920, 1080)
+		}
+	}
+	
 	GetResolution(Byref width, Byref height)
 	{
-		SysGet, Monitor, Monitor, %A_Index%
-		width := MonitorRight
-		height := MonitorBottom
+		SysGet, width, 0
+		SysGet, height, 1
 	}
 
 	GetWorkArea()
 	{
-		SysGet, MonitorWorkArea, MonitorWorkArea, %A_Index%
+		SysGet, MonitorPrimary, MonitorPrimary
+		SysGet, MonitorWorkArea, MonitorWorkArea, %MonitorPrimary%
 		return MonitorWorkArea
 	}
 	
 	GetName()
 	{
-		SysGet, MonitorName, MonitorName, %A_Index%
+		SysGet, MonitorPrimary, MonitorPrimary
+		SysGet, MonitorName, MonitorName, %MonitorPrimary%
 		return MonitorName
 	}
 	
