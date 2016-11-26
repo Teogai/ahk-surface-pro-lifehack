@@ -18,13 +18,12 @@
 	
 	HandleOverwatch()
 	{
-		WinWait Overwatch
-		Sleep, 4000
+		Process, Wait, Overwatch.exe
+		Sleep, 2000
 		MonitorManager.ChangeToLowestResolution()
 		PowerPlanManager.SetPowerSaverPlan()
 		
-		WinWaitClose
-		Sleep, 1000
+		Process, WaitClose, Overwatch.exe
 		MonitorManager.ChangeToHighestResolution()
 		PowerPlanManager.SetBalancedPlan()
 	}
