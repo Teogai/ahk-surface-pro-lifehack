@@ -22,10 +22,14 @@
 		Sleep, 2000
 		MonitorManager.ChangeToLowestResolution()
 		PowerPlanManager.SetPowerSaverPlan()
+		MouseManager.SetMouseSpeed(12)
+		MouseManager.TurnOffPointerPrecision()
 		
 		Process, WaitClose, Overwatch.exe
 		MonitorManager.ChangeToHighestResolution()
 		PowerPlanManager.SetBalancedPlan()
+		MouseManager.SetMouseSpeed(20)
+		MouseManager.TurnOnPointerPrecision()
 	}
 	
 	LaunchTimelie()
@@ -45,6 +49,7 @@ SurfaceProLifeHacker.Run()
 #Include Scripts/HotKey.ahk
 #Include Scripts/PowerPlanManager.ahk
 #Include Scripts/MonitorManager.ahk
+#Include Scripts/MouseManager.ahk
 #Include Scripts/SharpShooter.ahk
 ;#Include Scripts/NoRecoil.ahk
 

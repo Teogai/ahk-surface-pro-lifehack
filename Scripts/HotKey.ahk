@@ -47,7 +47,6 @@
 
 ^!+-::Run %A_ScriptDir%/Scripts/NoRecoil.ahk
 
-
 #Backspace::CtrlBreak ;Make Win+Backspace = Pause/Break
 
 #IfWinActive ahk_class ConsoleWindowClass
