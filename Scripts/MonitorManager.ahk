@@ -24,7 +24,7 @@ Class MonitorManager
 		}
 		else
 		{
-			MonitorManager.ChangeResolution(640, 360)
+			MonitorManager.ChangeResolution(800, 450)
 		}
 	}
 	

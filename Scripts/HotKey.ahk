@@ -15,7 +15,7 @@
 
 ^!+F6::MonitorManager.ChangeResolution(640, 360)	
 
-^!+F7::MonitorManager.ChangeResolution(1280, 720)
+^!+F7::MonitorManager.ChangeResolution(800, 450)
 
 ^!+F8::MonitorManager.ChangeResolution(1920, 1080)
 
@@ -23,7 +23,7 @@
 
 ;^!+F10::MonitorManager.ChangeResolution(1080, 720)
 
-^!+F9::MonitorManager.ChangeResolution(540, 360)	
+^!+F9::MonitorManager.ChangeResolution(544, 360)	
 
 ^!+F10::MonitorManager.ChangeResolution(1440, 960)
 
@@ -32,6 +32,8 @@
 ^!+F12::MonitorManager.ChangeResolution(2160, 1440)
 
 ^!+C::Run C:\Program Files\ConEmu\ConEmu64.exe
+
+^!+E::Run explorer.exe
 
 ^!+D::Run desk.cpl
 
