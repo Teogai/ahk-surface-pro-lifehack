@@ -13,9 +13,9 @@
 
 ; ===== 16:9 =====
 
-^!+F6::MonitorManager.ChangeResolution(640, 360)	
+^!+F6::MonitorManager.ChangeResolution(800, 450)	
 
-^!+F7::MonitorManager.ChangeResolution(800, 450)
+^!+F7::MonitorManager.ChangeResolution(1280, 720)
 
 ^!+F8::MonitorManager.ChangeResolution(1920, 1080)
 
@@ -23,9 +23,9 @@
 
 ;^!+F10::MonitorManager.ChangeResolution(1080, 720)
 
-^!+F9::MonitorManager.ChangeResolution(544, 360)	
+^!+F9::MonitorManager.ChangeResolution(752, 500)	
 
-^!+F10::MonitorManager.ChangeResolution(1440, 960)
+^!+F10::MonitorManager.ChangeResolution(1080, 720)
 
 ^!+F11::MonitorManager.ChangeResolution(1624, 1080)
 
@@ -46,8 +46,6 @@
 ^!+[::SharpShooter.Run()
 
 ^!+]::SharpShooter.Toggle()
-
-^!+=::NoRecoil.Toggle()
 
 #Backspace::CtrlBreak ;Make Win+Backspace = Pause/Break
 

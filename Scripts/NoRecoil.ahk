@@ -35,3 +35,21 @@ Sleep, 8000
 NoRecoil.usingUlt := false
 return 
 
+#If (NoRecoil.IsRunning = true) and WinActive("Helldivers")
+LButton::
+While GetKeyState("LButton", "P") and WinActive("Helldivers") and (NoRecoil.usingUlt = false)
+{
+	Click down
+	Sleep, 50
+	Click up
+	Sleep, 20
+}
+return
+
+#IfWinActive Helldivers
+F::NoRecoil.Toggle()
+#IfWinActive
+
+^!+=::NoRecoil.Toggle()
+
+

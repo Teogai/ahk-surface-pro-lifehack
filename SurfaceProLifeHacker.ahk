@@ -22,13 +22,13 @@
 		Sleep, 2000
 		MonitorManager.ChangeToLowestResolution()
 		PowerPlanManager.SetPowerSaverPlan()
-		MouseManager.SetMouseSpeed(8)
+		;MouseManager.SetMouseSpeed(20)
 		MouseManager.TurnOffPointerPrecision()
 		
 		Process, WaitClose, Overwatch.exe
 		MonitorManager.ChangeToHighestResolution()
 		PowerPlanManager.SetBalancedPlan()
-		MouseManager.SetMouseSpeed(20)
+		;MouseManager.SetMouseSpeed(20)
 		MouseManager.TurnOnPointerPrecision()
 	}
 	
