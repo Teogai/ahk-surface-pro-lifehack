@@ -54,6 +54,8 @@ SurfaceProLifeHacker.Run()
 #Include Scripts/NoRecoil.ahk
 #Include Scripts/UI.ahk
 
+#Include Lib/SoundSwapper.ahk
+
 #NoEnv
 #SingleInstance, Force
 #Persistent

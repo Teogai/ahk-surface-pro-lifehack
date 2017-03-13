@@ -49,6 +49,21 @@
 
 #Backspace::CtrlBreak ;Make Win+Backspace = Pause/Break
 
+^!+A::
+	toggle:=!toggle ; This toggles the variable between true/false
+	if toggle
+	{
+		Run nircmd setdefaultsounddevice "Speakers"
+		soundToggleBox("Speakers")
+	}
+	else
+	{
+		Run nircmd setdefaultsounddevice "Realtek HD Audio 2nd output"
+		Run nircmd setdefaultsounddevice "Headphones"
+		soundToggleBox("Headphones")
+	}
+Return
+
 #IfWinActive ahk_class ConsoleWindowClass
 ^V::Send !{Space}ep
 #IfWinActive
