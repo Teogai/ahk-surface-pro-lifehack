@@ -53,6 +53,7 @@ SurfaceProLifeHacker.Run()
 #Include Scripts/SharpShooter.ahk
 #Include Scripts/NoRecoil.ahk
 #Include Scripts/UI.ahk
+#Include SCripts/Volumouse.ahk
 
 #Include Lib/SoundSwapper.ahk
 
