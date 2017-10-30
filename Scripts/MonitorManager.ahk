@@ -2,7 +2,6 @@ Class MonitorManager
 {
 	static WIDTH
 	static HEIGHT
-	
 	SaveCurrentResolution()
 	{
 		MonitorManager.GetResolution(width, height)

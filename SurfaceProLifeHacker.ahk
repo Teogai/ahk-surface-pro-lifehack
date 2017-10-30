@@ -8,14 +8,6 @@
 		Menu, Tray, Tip, Surface Pro Life Hacker
 	}
 	
-	Run()
-	{
-		Loop
-		{
-			SurfaceProLifeHacker.HandleOverwatch()
-		}
-	}
-	
 	HandleOverwatch()
 	{
 		Process, Wait, Overwatch.exe
@@ -41,10 +33,18 @@
 	{
 		ExitApp
 	}
+	CheckAdmin()
+	{
+		if not A_IsAdmin
+		{
+   			Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
+   			ExitApp
+		}
+	}
 }
 
+;;SurfaceProLifeHacker.CheckAdmin()
 SurfaceProLifeHacker.Setup()
-SurfaceProLifeHacker.Run()
 
 #Include Scripts/HotKey.ahk
 #Include Scripts/PowerPlanManager.ahk
@@ -53,7 +53,6 @@ SurfaceProLifeHacker.Run()
 #Include Scripts/SharpShooter.ahk
 #Include Scripts/NoRecoil.ahk
 #Include Scripts/UI.ahk
-#Include SCripts/Volumouse.ahk
 
 #Include Lib/SoundSwapper.ahk
 
