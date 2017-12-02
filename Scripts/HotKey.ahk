@@ -1,6 +1,7 @@
 #Include Scripts/PowerPlanManager.ahk
 #Include Scripts/MonitorManager.ahk
 #Include Scripts/SoundManager.ahk
+#Include Scripts/PowershellLauncher.ahk
 
 ;;^ => Ctrl
 ;;! => Alt
@@ -34,7 +35,7 @@
 ^!+D::Run desk.cpl
 ^!+E::Run explorer.exe
 ;^!+F::
-;^!+G::
+^!+G::Run c:\GitProjects
 ;^!+H::
 ;^!+I::
 ^!+J::Run c:\Downloads
@@ -43,7 +44,7 @@
 ;^!+M::
 ;^!+N::
 ;^!+O::
-^!+P::Run powercfg.cpl
+^!+P::PowershellLauncher.LaunchPowershellAtCurrentDir()
 ;^!+Q::
 ^!+R::Run regedit
 ^!+S::Run shell:Startup
