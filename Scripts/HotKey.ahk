@@ -64,7 +64,10 @@
     Run %GitProjectsVar%
 Return 
 ;#I:: --Settings
-#J::Run c:\Downloads
+#J::
+    DownloadsVar := EnvironmentManager.GetVariable("Downloads")
+    Run %DownloadsVar%
+Return
 ;#K::
 ;#L:: --Lock
 ;#M:: --Minimize
