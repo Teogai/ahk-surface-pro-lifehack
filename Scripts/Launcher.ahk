@@ -1,9 +1,12 @@
-﻿Class PowershellLauncher
+﻿Class Launcher
 {
     LaunchPowershellAtCurrentDir()
     {
         Dir := PowershellLauncher.ActiveFolderPath()
-        Run powershell.exe -noexit cd %Dir%
+        If Dir
+            Run powershell -noexit cd %Dir%
+        Else
+            Run powershell -noexit cd c:\windows\system32
     }
 
     ActiveFolderPath(WinTitle="A")

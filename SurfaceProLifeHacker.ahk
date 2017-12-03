@@ -8,22 +8,6 @@
 		Menu, Tray, Tip, Surface Pro Life Hacker
 	}
 	
-	HandleOverwatch()
-	{
-		Process, Wait, Overwatch.exe
-		Sleep, 2000
-		MonitorManager.ChangeToLowestResolution()
-		PowerPlanManager.SetPowerSaverPlan()
-		;MouseManager.SetMouseSpeed(20)
-		MouseManager.TurnOffPointerPrecision()
-		
-		Process, WaitClose, Overwatch.exe
-		MonitorManager.ChangeToHighestResolution()
-		PowerPlanManager.SetBalancedPlan()
-		;MouseManager.SetMouseSpeed(20)
-		MouseManager.TurnOnPointerPrecision()
-	}
-	
 	LaunchTimelie()
 	{
 		Run shell:Appsfolder\senior-project_gmxa5rbgwx94a!App
