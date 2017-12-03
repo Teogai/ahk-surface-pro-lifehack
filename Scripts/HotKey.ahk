@@ -86,6 +86,7 @@
 #IfWinActive
 ^!WheelUp::SoundManager.MouseWheelVolume("+1")
 ^!WheelDown::SoundManager.MouseWheelVolume("-1")
+^!RButton::Send {Blind} {Volume_Mute}
 return
 
 #F20::return ;Single Pen Click
