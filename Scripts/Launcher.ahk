@@ -2,7 +2,7 @@
 {
     LaunchPowershellAtCurrentDir()
     {
-        Dir := PowershellLauncher.ActiveFolderPath()
+        Dir := Launcher.ActiveFolderPath()
         If Dir
             Run powershell -noexit cd %Dir%
         Else
