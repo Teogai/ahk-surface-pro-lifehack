@@ -2,6 +2,7 @@
 #Include Scripts/MonitorManager.ahk
 #Include Scripts/SoundManager.ahk
 #Include Scripts/Launcher.ahk
+#Include Scripts/EnvironmentManager.ahk
 
 ;;^ => Ctrl
 ;;! => Alt
@@ -58,7 +59,10 @@
 ;#E:: --Explorer
 ;#F::
 ;#G::
-#H::Run c:\GitProjects
+#H::
+    GitProjectsVar := EnvironmentManager.GetVariable("GitProjects")
+    Run %GitProjectsVar%
+Return 
 ;#I:: --Settings
 #J::Run c:\Downloads
 ;#K::
