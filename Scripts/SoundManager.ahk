@@ -8,9 +8,9 @@ Class SoundManager
         {
             this.StartTime := A_TickCount
             If step > 0
-                Send {Blind} {Volume_Up}
+                Send {Blind}{Volume_Up}
             Else
-                Send {Blind} {Volume_Down}
+                Send {Blind}{Volume_Down}
         }
         Else
         {
