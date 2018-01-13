@@ -31,14 +31,7 @@
 SurfaceProLifeHacker.Setup()
 
 #Include Scripts/HotKey.ahk
-#Include Scripts/PowerPlanManager.ahk
-#Include Scripts/MonitorManager.ahk
-#Include Scripts/MouseManager.ahk
-#Include Scripts/SharpShooter.ahk
-#Include Scripts/NoRecoil.ahk
 #Include Scripts/UI.ahk
-
-#Include Lib/SoundSwapper.ahk
 
 #NoEnv
 #SingleInstance, Force

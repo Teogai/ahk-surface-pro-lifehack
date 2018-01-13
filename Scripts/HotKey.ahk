@@ -1,8 +1,4 @@
-#Include Scripts/PowerPlanManager.ahk
-#Include Scripts/MonitorManager.ahk
-#Include Scripts/SoundManager.ahk
-#Include Scripts/Launcher.ahk
-#Include Scripts/EnvironmentManager.ahk
+BS := new BrightnessAndVolumeSetter()
 
 ;;^ => Ctrl
 ;;! => Alt
@@ -85,19 +81,24 @@ Return
 ;#Z::
 
 ^!+/::Run SnippingTool.exe
-;^!+[::SharpShooter.Run()
-;^!+]::SharpShooter.Toggle()
 
 #Backspace::CtrlBreak ;Make Win+Backspace = Pause/
 
+^!+WheelUp::BS.SetBrightness(1)
+^!+WheelDown::BS.SetBrightness(-1)
+
 #IfWinActive
-^!WheelUp::SoundManager.MouseWheelVolume("+1")
-^!WheelDown::SoundManager.MouseWheelVolume("-1")
-^!RButton::Send {Blind} {Volume_Mute}
+^!WheelUp::BS.SetVolume(1)
+^!WheelDown::BS.SetVolume(-1)
+^!MButton::Send {Blind}{Volume_Mute}
 return
 
 #F20::return ;Single Pen Click
 #F19::Run "C:\Program Files\Adobe\Adobe Photoshop CC 2017\Photoshop.exe" ;Double Pen Click
 #F18::return ;Pen Click and Hold
 
-
+#Include Scripts/PowerPlanManager.ahk
+#Include Scripts/MonitorManager.ahk
+#Include Scripts/Launcher.ahk
+#Include Scripts/EnvironmentManager.ahk
+#Include Scripts/BrightnessAndVolumeSetter.ahk
