@@ -1,12 +1,15 @@
 ﻿Class Launcher
 {
-    LaunchPowershellAtCurrentDir()
+    LaunchPowershellAtCurrentDir(isAdmin=false)
     {
         Dir := Launcher.ActiveFolderPath()
-        If Dir
-            Run powershell -noexit cd %Dir%
+        If !Dir
+            Dir := "c:\windows\system32"
+
+        If isAdmin
+            Run *RunAs powershell -noexit cd %Dir%
         Else
-            Run powershell -noexit cd c:\windows\system32
+            Run powershell -noexit cd %Dir%
     }
 
     ActiveFolderPath(WinTitle="A")
@@ -26,5 +29,14 @@
         If WinPath ;if path not empty, append single backslash
             WinPath .= "\"
         Return WinPath
+    }
+
+    LaunchVSCodeAtCurrentDir()
+    {
+        Dir := Launcher.ActiveFolderPath()
+        If !Dir
+            Run code
+        Else
+            Run powershell -windowstyle hidden cd %Dir% | code .
     }
 }

@@ -17,6 +17,7 @@
 	{
 		ExitApp
 	}
+	
 	CheckAdmin()
 	{
 		if not A_IsAdmin

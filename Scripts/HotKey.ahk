@@ -8,9 +8,9 @@ BS := new BrightnessAndVolumeSetter()
 ^!LButton::RButton
 ^!+LButton::MButton
 
-;^!+F1::PowerPlanManager.SetBalancedPlan()
-;^!+F2::PowerPlanManager.SetHighPerformancePlan()
-;^!+F3::PowerPlanManager.SetPowerSaverPlan()
+^!+F1::PowerPlanManager.SetBalancedPlan()
+^!+F2::PowerPlanManager.SetHighPerformancePlan()
+^!+F3::PowerPlanManager.SetPowerSaverPlan()
 ;^!+F4::
 ^!+F5::Reload
 ;^!+F6::MonitorManager.ChangeResolution(800, 450)	
@@ -51,6 +51,7 @@ BS := new BrightnessAndVolumeSetter()
 ;#A:: --Action Center
 ;#B::
 #C::Launcher.LaunchPowershellAtCurrentDir()
+; #+C::Launcher.LaunchPowershellAtCurrentDir(true)
 ;#D:: --Show Desktop
 ;#E:: --Explorer
 ;#F::
@@ -74,7 +75,7 @@ Return
 ;#S::
 ;#T:: --Tab
 ;#U::
-;#V::
+#V:: Launcher.LaunchVSCodeAtCurrentDir()
 ;#W:: --Ink Workspace
 ;#X:: --System Apps
 ;#Y::
