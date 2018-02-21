@@ -35,7 +35,7 @@
     {
         Dir := Launcher.ActiveFolderPath()
         If !Dir
-            Run code
+            Run powershell -windowstyle hidden | code
         Else
             Run powershell -windowstyle hidden cd %Dir% | code .
     }

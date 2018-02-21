@@ -21,7 +21,7 @@ BS := new BrightnessAndVolumeSetter()
 ;^!+F11::MonitorManager.ChangeResolution(1624, 1080)
 ;^!+F12::MonitorManager.ChangeResolution(2160, 1440)
 
-;^!+A::
+^!+A::WinSet, AlwaysOnTop, ,A
 ;^!+B::
 ;^!+C::
 ^!+D::Run desk.cpl
