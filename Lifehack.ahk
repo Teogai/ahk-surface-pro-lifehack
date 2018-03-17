@@ -5,7 +5,7 @@
 		Menu, Tray, Icon, %A_ScriptDir%\teogai.ico 
 		Menu, Tray, NoStandard
 		Menu, Tray, Add, Exit, SurfaceProLifeHacker.ExitScript
-		Menu, Tray, Tip, Surface Pro Life Hacker
+		Menu, Tray, Tip, Teogai Lifehacker
 	}
 	
 	LaunchTimelie()
